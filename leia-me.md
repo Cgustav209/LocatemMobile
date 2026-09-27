@@ -1,0 +1,50 @@
+# Site da documentação de react-hook-form  
+https://react-hook-form.com/get-started
+
+# Stite da documentação do zod
+https://zod.dev/
+
+## Para instalar tais dependencias 
+    npx expo install react-hook-form zod @hookform/resolvers
+
+## Para instalar pacote de icons do expo
+    npm install react-native-vector-icons
+    
+## Utilizado para exibir ícones do sistema, como o ícone de imagem indisponível (`ImageOff`)
+    npx expo install lucide-react-native
+
+### DateTime Picker
+
+Utilizado para substituir o componente HTML `<input type="date">` da versão Web.  
+O pacote fornece um seletor de data nativo para Android e iOS, permitindo que o usuário escolha datas por meio da interface padrão do sistema operacional.
+
+Instalação:
+
+```bash
+npx expo install @react-native-community/datetimepicker
+``
+
+-- 
+npm install date-fns
+
+--
+npm install react-native-draggable-flatlist
+npx expo install react-native-draggable-flatlist
+
+--
+npx expo install react-native-reanimated
+
+--
+npx expo install react-native-worklets
+
+## npm install lucide-react
+npm install lucide-react
+
+
+### Biblioteca adicionada
+- `@react-native-async-storage/async-storage` — padrão de mercado para
+  persistência local em apps Expo/React Native (`localStorage` não
+  existe fora do ambiente Web/DOM).
+
+  #
+npm install @react-native-async-storage/async-storage

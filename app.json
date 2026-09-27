@@ -15,13 +15,22 @@
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
-      }
+      },
+      "package": "com.anonymous.locatemMobile"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-font"
+      "expo-font",
+      "@react-native-community/datetimepicker",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "O Locatem usa suas fotos para você definir a foto de perfil e cadastrar as fotos das suas ferramentas.",
+          "cameraPermission": "O Locatem usa a câmera para você tirar a foto de perfil e as fotos das suas ferramentas."
+        }
+      ]
     ]
   }
 }

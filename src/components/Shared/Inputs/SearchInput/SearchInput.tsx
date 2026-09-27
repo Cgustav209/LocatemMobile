@@ -1,0 +1,76 @@
+import { View, Image, TextInput, StyleSheet, KeyboardTypeOptions, } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+interface InputProps {
+  placeholder: string;
+  keyboardType: KeyboardTypeOptions;
+  value: string;
+  style: any;
+  onChangeText: (text: string) => void;
+  onSubmitEditing?: () => void;
+}
+
+export default function SearchInput({ placeholder, keyboardType, value, onChangeText, style, onSubmitEditing }: InputProps) {
+  return (
+    <View style={[styles.searchContainer, style]}>
+          <MaterialCommunityIcons
+            name="magnify"
+            size={20}
+            color="#0A0A0A"
+            style={{ opacity: 0.55 }}
+          />
+      <TextInput
+      
+        style={styles.input}
+        placeholder={placeholder}
+        placeholderTextColor="#999"
+        keyboardType={keyboardType}
+        value={value}
+        onChangeText={onChangeText}
+        onSubmitEditing={onSubmitEditing}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+
+  input: {
+    flex: 1,
+    paddingLeft: 10,
+  
+    color: "#1a1c1e",
+    backgroundColor: "transparent",
+
+    borderColor: "#d0d5dd",
+
+    borderRadius:50,
+    paddingVertical: 0,
+    paddingHorizontal: 10,
+    fontSize: 16,
+
+    textAlignVertical: "center",
+
+  },
+  searchContainer:{
+
+    flexDirection:"row",
+    alignItems:"center",
+
+    height:42,
+    backgroundColor:"#f9fafb",
+
+    borderWidth:1,
+    borderColor:"#d0d5dd",
+    borderRadius:50,
+
+    paddingHorizontal:15,
+
+    flex:1
+
+  },
+  icon:{
+     width:20,
+    height:20,
+    resizeMode:"contain",
+  }
+});
