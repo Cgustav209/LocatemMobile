@@ -1,3 +1,6 @@
+/**
+ * Fluxo de pagamento: conduz escolha de metodo, dados do pagamento, processamento simulado e confirmacao.
+ */
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { Plus } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -16,6 +19,7 @@ interface SelecionarCartaoProps {
   navigate: (route: string) => void;
 }
 
+/** Tela para escolher um cartao salvo ou iniciar o cadastro de outro. */
 export default function SelecionarCartao({ navigate }: SelecionarCartaoProps) {
   const {
     metodoPagamento,

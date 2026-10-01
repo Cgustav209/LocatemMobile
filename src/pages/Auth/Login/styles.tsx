@@ -1,5 +1,8 @@
-import { StyleSheet } from "react-native";
-
+import { StyleSheet, Platform } from "react-native";
+import colors from "../../../theme/colors";
+// Estilos visuais da tela de Login (index.tsx).
+// Dividido em: container/título/formulário base, texto de erro de campo,
+// card de "Dados inválidos" (vermelho) e card de "Logado com sucesso" (verde).
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: "#f9fafb",
@@ -25,7 +28,7 @@ export const styles = StyleSheet.create({
     marginTop: 0,
     marginBottom: 24,
   },
-  // Já deixei este estilo preparado para o nosso próximo passo (Validação)
+ 
   erroTexto: {
     color: "#dc2626", // Um tom de vermelho elegante (Tailwind Red 600)
     fontSize: 12,
@@ -103,5 +106,21 @@ export const styles = StyleSheet.create({
     color: "#111827",
     fontSize: 14,
     fontFamily: "Inter_700Bold",
+  },
+  cabecalho: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    paddingHorizontal: 20,
+    paddingTop: Platform.OS === "ios" ? 58 : 24,
+    paddingBottom: 18,
+    borderBottomColor: colors.borderLight,
+  },
+  botaoVoltar: {
+    width: 34,
+    height: 34,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 50,
   },
 });

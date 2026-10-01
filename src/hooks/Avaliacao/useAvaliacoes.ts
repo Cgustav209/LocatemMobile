@@ -1,3 +1,6 @@
+/**
+ * Hook de avaliacao: organiza pendencias, envio e resumo de notas do usuario.
+ */
 import { useMemo, useState } from 'react';
 
 import type {
@@ -52,6 +55,7 @@ function criarProdutoAvaliacaoAPartirDaLocacao(
   };
 }
 
+/** Coordena a lista de avaliacoes, o formulario, o envio e o estado de sucesso. */
 export function useAvaliacoes() {
   const [produtos, setProdutos] =
     useState<ProdutoAvaliacao[]>(

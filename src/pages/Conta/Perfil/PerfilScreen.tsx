@@ -1,3 +1,6 @@
+/**
+ * Area da conta: exibe e altera dados de perfil, favoritos e notificacoes do usuario.
+ */
 import React, { useState } from 'react';
 import { LogOut } from 'lucide-react-native';
 import {
@@ -25,7 +28,7 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 /** Callbacks opcionais usados pela rota que hospeda a tela de perfil. */
 interface Props {
     onNavigate?: (
-        route: 'minhasLocacoes' | 'notificacoes' | 'favoritos' | 'LoginScreen'
+        route: 'minhasLocacoes' | 'notificacoes' | 'favoritos' | 'minhasFerramentas' | 'historicoLocacoes' | 'LoginScreen'
     ) => void;
     /** Chamado quando o usuário sem sessão toca em "Entrar na conta" (espelha o botão equivalente da Web). */
     onEntrar?: () => void;
@@ -39,6 +42,7 @@ interface Props {
     onAlterarFoto?: () => Promise<string | null | undefined> | string | null | undefined;
 }
 
+/** Tela de perfil do usuario com acesso aos dados da conta e ao encerramento da sessao. */
 export default function PerfilScreen({
     onNavigate,
     onEntrar,

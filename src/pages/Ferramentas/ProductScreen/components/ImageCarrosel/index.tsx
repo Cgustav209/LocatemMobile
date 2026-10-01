@@ -1,3 +1,6 @@
+/**
+ * Detalhe da ferramenta: apresenta dados do produto e inicia fluxos de carrinho ou locacao.
+ */
 import React, { useState, useRef, useCallback } from 'react';
 import {
   View,
@@ -20,6 +23,7 @@ import { ImagemCarrosselProps } from './types';
 
 
 
+/** Carrossel que exibe as imagens da ferramenta e permite navegar entre elas. */
 export function ImagemCarrossel({ images }: ImagemCarrosselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);

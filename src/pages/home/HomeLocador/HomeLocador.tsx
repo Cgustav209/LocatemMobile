@@ -1,3 +1,6 @@
+/**
+ * Home do locador: resume solicitacoes, agenda e ferramentas anunciadas pelo usuario locador.
+ */
 import React from 'react';
 
 import { ScrollView, View, Text, TouchableOpacity } from 'react-native';
@@ -69,6 +72,7 @@ function CabecalhoSecao({ titulo, subtitulo, linkLabel, onPressLink }: Cabecalho
   );
 }
 
+/** Painel inicial do locador com solicitacoes recentes e atalhos para ferramentas. */
 export default function HomeLocador({ navigate }: HomeLocadorProps) {
   // Todos os hooks ficam ANTES do `return null` (regra dos hooks).
   const acessoPermitido = useExigirPerfil(navigate, 'locador', 'home');

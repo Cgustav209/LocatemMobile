@@ -1,3 +1,6 @@
+/**
+ * Fluxo de pagamento: conduz escolha de metodo, dados do pagamento, processamento simulado e confirmacao.
+ */
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -14,6 +17,7 @@ interface AdicionarCartaoCreditoProps {
   navigate: (route: string) => void;
 }
 
+/** Formulario para cadastrar um cartao de credito e seguir no fluxo de pagamento. */
 export default function AdicionarCartaoCredito({ navigate }: AdicionarCartaoCreditoProps) {
   const {
     valor,

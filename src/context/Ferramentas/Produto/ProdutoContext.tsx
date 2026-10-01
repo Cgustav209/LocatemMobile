@@ -1,3 +1,8 @@
+/**
+ * Contexto do produto selecionado.
+ * Mantem a ferramenta aberta na tela de detalhes para fluxos de locacao,
+ * carrinho e componentes que precisam ler a mesma selecao.
+ */
 import { createContext, useState } from 'react';
 import type { ReactNode } from 'react';
 
@@ -18,6 +23,7 @@ export const ProdutoContext =
     null
   );
 
+/** Disponibiliza o produto selecionado e seus dados para as telas consumidoras. */
 export function ProdutoProvider({
   children,
 }: {

@@ -1,3 +1,6 @@
+/**
+ * Utilitario puro: centraliza formatacao, validacao ou transformacao de dados reutilizada no app.
+ */
 import type { ProdutoBusca, FilterState } from '../../pages/Search/Searchtypes';
 
 /**
@@ -26,6 +29,7 @@ export function filtrarProdutos(
   return produtos.filter((product) => matchesAllFilters(product, filters, search));
 }
 
+/** Aplica em conjunto os filtros ativos e verifica se o termo de busca corresponde. */
 function matchesAllFilters(
   product: ProdutoBusca,
   filters: FilterState,
@@ -70,6 +74,7 @@ function matchesAllFilters(
   return true;
 }
 
+/** Confere se o preco do produto pertence a pelo menos uma faixa selecionada. */
 function matchesPriceRange(precoStr: string, priceRanges: string[]): boolean {
   const preco = parseFloat(precoStr.replace(',', '.'));
 
@@ -87,6 +92,7 @@ function matchesPriceRange(precoStr: string, priceRanges: string[]): boolean {
   });
 }
 
+/** Procura o termo ignorando maiusculas e minusculas em titulo, marca e categoria. */
 function matchesSearchTerm(product: ProdutoBusca, search: string): boolean {
   const termo = search.trim().toLowerCase();
   return (

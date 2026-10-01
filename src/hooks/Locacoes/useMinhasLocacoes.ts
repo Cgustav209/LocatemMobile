@@ -1,3 +1,6 @@
+/**
+ * Hook de locacoes: calcula estados, filtros e acoes dos fluxos de aluguel.
+ */
 import { useMemo, useState } from 'react';
 import type { FiltroLocacao, StatusLocacao } from '../../pages/Locacoes/MinhasLocacoes/MinhasLocacoes.types';
 import { useLocacaoStore } from './useLocacaoStore';
@@ -9,6 +12,7 @@ interface UseMinhasLocacoesReturn {
   contagem: Record<FiltroLocacao, number>;
 }
 
+/** Seleciona e organiza as locacoes apresentadas ao usuario. */
 export function useMinhasLocacoes(): UseMinhasLocacoesReturn {
   // Locacoes vêm do contexto global, garantindo que alterações feitas em
   // DetalhesLocacao (ex: cancelamento) reflitam aqui também

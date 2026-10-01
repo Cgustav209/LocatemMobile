@@ -1,3 +1,6 @@
+/**
+ * Detalhe da ferramenta: apresenta dados do produto e inicia fluxos de carrinho ou locacao.
+ */
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
@@ -5,6 +8,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import { SeletorQuantidadeProps } from './types';
 
+/** Controle visual para ajustar a quantidade respeitando os limites disponiveis. */
 export default function SeletorQuantidade({
   quantidade,
   estoqueDisponivel,

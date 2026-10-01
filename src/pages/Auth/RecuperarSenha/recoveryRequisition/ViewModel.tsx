@@ -1,6 +1,17 @@
+/**
+ * Fluxo de autenticacao: concentra telas, formularios e navegacao de login, cadastro e recuperacao de senha.
+ */
 import React, { useState } from "react";
 import { Alert } from "react-native";
 
+// ============================================================================
+// RecoveryRequisitionViewModel
+// ----------------------------------------------------------------------------
+// ViewModel (padrão MVVM usado nas telas de Recuperar Senha) da 1ª etapa do
+// fluxo: pedir o e-mail e validá-lo antes de "enviar" o token e navegar para
+// a tela de digitação do token (ReceiveTokenScreen). Não faz chamada real de
+// API — apenas valida o formato do e-mail com Alert nativo do RN.
+// ============================================================================
 const RecoveryRequisitionViewModel = () => {
     // 1. ESTADO: Guarda as informações que o usuário digita na tela
     const [values, setValues] = useState({

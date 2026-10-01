@@ -1,3 +1,6 @@
+/**
+ * Cadastro de ferramenta do locador: coleta dados, fotos, preco e regras de disponibilidade do anuncio.
+ */
 import { useMemo, useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -44,6 +47,7 @@ type CadastroFerramentaRoute = RouteProp<
   'CadastroFerramentaScreen'
 >;
 
+/** Tela de cadastro que coleta os dados e publica uma ferramenta para locacao. */
 export default function CadastroFerramentaScreen() {
   const navigation = useNavigation();
   const route = useRoute<CadastroFerramentaRoute>();

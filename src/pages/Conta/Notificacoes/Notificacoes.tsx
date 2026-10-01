@@ -1,3 +1,6 @@
+/**
+ * Area da conta: exibe e altera dados de perfil, favoritos e notificacoes do usuario.
+ */
 import React, { useState } from 'react';
 
 import { View, Text, ScrollView, Pressable } from 'react-native';
@@ -22,6 +25,7 @@ interface NotificacoesProps {
   navigate: (route: string) => void;
 }
 
+/** Tela que exibe notificacoes e encaminha para as locacoes relacionadas. */
 export default function Notificacoes({ navigate }: NotificacoesProps) {
   const {
     notifications,

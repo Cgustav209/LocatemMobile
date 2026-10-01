@@ -1,3 +1,6 @@
+/**
+ * Hook de conta: concentra regras de perfil, completude, foto ou notificacoes.
+ */
 import { useMemo } from 'react';
 import type { Usuario } from '../../../types/Auth/usuario.types';
 
@@ -17,6 +20,7 @@ const CRITERIOS: CriterioPerfil[] = [
   { peso: 7, acao: 'verifique seu e-mail', atendido: u => u.emailVerificado },
 ];
 
+/** Calcula quais dados do perfil do usuario ainda precisam ser preenchidos. */
 export function useCompletudePerfil(usuario: Usuario | null) {
   return useMemo(() => {
     if (!usuario) return { percentual: 0, completo: false, mensagemDica: '' };

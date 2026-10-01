@@ -1,3 +1,6 @@
+/**
+ * Fluxo de autenticacao: concentra telas, formularios e navegacao de login, cadastro e recuperacao de senha.
+ */
 import { useEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { Controller } from "react-hook-form"; // O Adaptador
@@ -24,6 +27,15 @@ import { styles } from "./styles";
 // O nosso Custom Hook (O Cérebro)
 import { useCadastro } from "./useCadastro";
 
+// ============================================================================
+// CadastroScreen
+// ----------------------------------------------------------------------------
+// Tela de criação de conta. Permite escolher o tipo de usuário (Locador ou
+// Locatário) e preenche um formulário único cujos campos variam de acordo
+// com essa escolha (ex.: CPF para locatário, CNPJ para locador). Toda a
+// lógica de validação/envio vive no hook useCadastro(); aqui só existe
+// apresentação + a máscara de documento aplicada em tempo real.
+// ============================================================================
 export default function CadastroScreen() {
   // Extraímos apenas as ferramentas que a View precisa para funcionar
   const {

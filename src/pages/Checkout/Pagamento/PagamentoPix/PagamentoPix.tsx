@@ -1,3 +1,6 @@
+/**
+ * Fluxo de pagamento: conduz escolha de metodo, dados do pagamento, processamento simulado e confirmacao.
+ */
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -14,6 +17,7 @@ interface PagamentoPixProps {
   navigate: (route: string) => void;
 }
 
+/** Tela que apresenta os dados do Pix para concluir o pagamento. */
 export default function PagamentoPix({ navigate }: PagamentoPixProps) {
   const {
     total,

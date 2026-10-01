@@ -1,3 +1,6 @@
+/**
+ * Fluxo de locacoes: acompanha solicitacoes, status, detalhes e historico de alugueis.
+ */
 import React, {
   useEffect,
   useState,
@@ -69,6 +72,7 @@ interface SolicitarLocacaoProps {
   navigate: (route: string) => void;
 }
 
+/** Formulario para informar periodo, endereco e contato da solicitacao de locacao. */
 export default function SolicitarLocacao({
   navigate,
 }: SolicitarLocacaoProps) {

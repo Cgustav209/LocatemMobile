@@ -1,3 +1,6 @@
+/**
+ * Detalhe da ferramenta: apresenta dados do produto e inicia fluxos de carrinho ou locacao.
+ */
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 
@@ -6,6 +9,7 @@ import { styles } from './styles';
 
 const verificadoImg = require('../../../../../../assets/images/verificadoAzul.png');
 
+/** Secao com dados de identificacao e contato do vendedor. */
 export function InfoVendedor({
   nome,
   logoUrl,

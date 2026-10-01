@@ -1,3 +1,6 @@
+/**
+ * Fluxo de autenticacao: concentra telas, formularios e navegacao de login, cadastro e recuperacao de senha.
+ */
 import React, {useState} from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image, TextInput } from "react-native";
 
@@ -15,9 +18,17 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../routes/AppRoutes";
 
 
+// ============================================================================
+// RecoveryRequisitionScreen
+// ----------------------------------------------------------------------------
+// Etapa 1 do fluxo "Esqueci minha senha": tela onde o usuário informa o
+// e-mail da conta. Ao validar (ViewModel), navega para ReceiveTokenScreen,
+// onde o token enviado por e-mail será digitado.
+// ============================================================================
 export const RecoveryRequisitionScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
+    // Estado e regras de validação do e-mail vêm do ViewModel (MVVM).
     const {onEmailChange, userEmail, validateSendEmail } = RecoveryRequisitionViewModel();
 
 
@@ -62,6 +73,7 @@ export const RecoveryRequisitionScreen = () => {
     );
 }
 
+// Estilos locais desta tela (não extraídos para um styles.tsx separado).
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#f9fafb",

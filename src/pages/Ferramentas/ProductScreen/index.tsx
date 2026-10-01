@@ -1,3 +1,6 @@
+/**
+ * Detalhe da ferramenta: apresenta dados do produto e inicia fluxos de carrinho ou locacao.
+ */
 import React, { useMemo, useRef, useState } from 'react';
 import { ScrollView, View, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -32,6 +35,7 @@ import { styles } from './styles';
 import type { RootStackParamList } from '../../../routes/AppRoutes';
 import type { ProdutoSemelhante } from './components/ProdutoSemelhantes/types';
 
+/** Tela de detalhes da ferramenta, com informacoes e acoes para iniciar uma locacao. */
 export default function ProductScreen() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const scrollViewRef = useRef<ScrollView>(null); 

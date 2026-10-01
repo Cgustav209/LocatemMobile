@@ -1,3 +1,6 @@
+/**
+ * Fluxo de pagamento: conduz escolha de metodo, dados do pagamento, processamento simulado e confirmacao.
+ */
 import { ActivityIndicator, Text, View } from 'react-native';
 import { Lock } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -15,6 +18,7 @@ interface ProcessandoPagamentoProps {
   navigate: (route: string) => void;
 }
 
+/** Tela de espera que acompanha a confirmacao do pagamento. */
 export default function ProcessandoPagamento({ navigate }: ProcessandoPagamentoProps) {
   const { metodoValido } = useProcessandoPagamento(navigate);
 

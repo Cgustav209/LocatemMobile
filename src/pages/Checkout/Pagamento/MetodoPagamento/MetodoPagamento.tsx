@@ -1,3 +1,6 @@
+/**
+ * Fluxo de pagamento: conduz escolha de metodo, dados do pagamento, processamento simulado e confirmacao.
+ */
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -18,6 +21,7 @@ interface MetodoPagamentoProps {
   navigate: (route: string) => void;
 }
 
+/** Tela para escolher o metodo de pagamento da locacao. */
 export default function MetodoPagamento({ navigate }: MetodoPagamentoProps) {
   const { total, formaSelecionada, selecionarForma, continuarPagamento } = useMetodoPagamento(navigate);
 

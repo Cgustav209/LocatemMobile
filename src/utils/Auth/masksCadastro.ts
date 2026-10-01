@@ -1,5 +1,9 @@
+/**
+ * Utilitario puro: centraliza formatacao, validacao ou transformacao de dados reutilizada no app.
+ */
 export type UserType = "locatario" | "locador";
 
+/** Aplica a mascara de CPF para locatarios ou de CNPJ para locadores durante a digitacao. */
 export const formatDocument = ( value: string, userType: UserType ): string => {
 
     const onlyNumbers = value.replace(/\D/g, '');

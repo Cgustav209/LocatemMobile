@@ -1,3 +1,6 @@
+/**
+ * Fluxo de carrinho: organiza itens selecionados, resumo da locacao e passagem para pagamento.
+ */
 import { useEffect, useState } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -53,6 +56,7 @@ const PRODUTO_VAZIO: Produto = {
   available: false,
 };
 
+/** Formulario para completar os dados de locacao dos itens selecionados no carrinho. */
 export default function SolicitarLocacaoCarrinho() {
   // Controla a navegação entre as telas.
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();

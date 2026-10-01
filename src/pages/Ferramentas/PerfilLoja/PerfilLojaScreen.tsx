@@ -1,3 +1,6 @@
+/**
+ * Fluxo de ferramentas: lista, detalha ou organiza anuncios e vitrines de locadores.
+ */
 import React, { useMemo, useState } from 'react';
 import { ScrollView, View, Text } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -24,6 +27,7 @@ const CATEGORIA_TODAS = 'Todas';
 
 type PerfilLojaRouteProp = RouteProp<RootStackParamList, 'PerfilLojaScreen'>;
 
+/** Tela de perfil da loja com informacoes do locador e suas ferramentas. */
 export default function PerfilLojaScreen() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const route = useRoute<PerfilLojaRouteProp>();

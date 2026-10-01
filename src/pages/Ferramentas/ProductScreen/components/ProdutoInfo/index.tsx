@@ -1,3 +1,6 @@
+/**
+ * Detalhe da ferramenta: apresenta dados do produto e inicia fluxos de carrinho ou locacao.
+ */
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, Image, ImageSourcePropType } from 'react-native';
 
@@ -35,6 +38,7 @@ interface ProdutoInfoProps {
   }) => void;
 }
 
+/** Secao com preco, disponibilidade e controles das opcoes de locacao do produto. */
 export function ProdutoInfo({
   title,
   price,

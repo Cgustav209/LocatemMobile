@@ -1,3 +1,6 @@
+/**
+ * Detalhe da ferramenta: apresenta dados do produto e inicia fluxos de carrinho ou locacao.
+ */
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'; // 🚀 Importação do Gradiente
@@ -28,6 +31,7 @@ function Estrelas({ rating, size = 14 }: { rating: number; size?: number }) {
   );
 }
 
+/** Extrai as iniciais do nome para exibi-las como identificacao do avaliador. */
 function getIniciais(nome: string) {
   if (!nome) return '';
   const partes = nome.trim().split(/\s+/);

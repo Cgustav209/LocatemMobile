@@ -1,3 +1,6 @@
+/**
+ * Area da conta: exibe e altera dados de perfil, favoritos e notificacoes do usuario.
+ */
 import React, { useMemo, useState } from 'react';
 import { View, Text, ScrollView, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -27,6 +30,7 @@ type Aba = 'todos' | 'disponiveis' | 'indisponiveis';
 
 const OPCOES_ORDENACAO = ['Mais recentes', 'Menor preço', 'Maior preço', 'Melhores avaliações'];
 
+/** Tela que lista os produtos favoritos e permite abrir seus detalhes. */
 export default function FavoritosScreen() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 

@@ -1,3 +1,6 @@
+/**
+ * Fluxo de locacoes: acompanha solicitacoes, status, detalhes e historico de alugueis.
+ */
 import React, { useEffect, useMemo, useState } from 'react';
 
 import { ScrollView, View } from 'react-native';
@@ -38,6 +41,7 @@ const STATUS_ENCERRADOS: StatusHistorico[] = [
   'cancelada',
 ];
 
+/** Tela que lista locacoes encerradas e permite consultar seus detalhes. */
 export default function HistoricoLocacoes({navigate,}: HistoricoLocacoesProps) {
   const { usuario } = useAuth();
   const { locacoes, setLocacaoSelecionada } = useLocacaoStore();

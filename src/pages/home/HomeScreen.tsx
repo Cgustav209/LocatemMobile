@@ -1,3 +1,6 @@
+/**
+ * Home do locatario: apresenta banners, categorias e ferramentas recomendadas para aluguel.
+ */
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 // importacao dos elementos de navegação
@@ -20,6 +23,7 @@ import { useProdutoStore } from "../../hooks/Ferramentas/useProdutoStore";
 // Catálogo principal exibido na Home (ver faixas de id em produtos.mock.ts).
 const PRODUTOS_HOME = PRODUTOS_MOCK.filter((produto) => produto.id <= 9);
 
+/** Tela inicial do locatario, com acesso a busca e produtos em destaque. */
 export const HomeScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
     const { setProdutoSelecionado } = useProdutoStore();

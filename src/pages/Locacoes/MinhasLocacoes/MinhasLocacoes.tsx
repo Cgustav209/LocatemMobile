@@ -1,3 +1,6 @@
+/**
+ * Fluxo de locacoes: acompanha solicitacoes, status, detalhes e historico de alugueis.
+ */
 import React from 'react';
 import {
   ScrollView,
@@ -98,6 +101,7 @@ const ESTADO_VAZIO_TEXTO = {
   },
 };
 
+/** Tela que organiza as locacoes do usuario e permite abrir cada solicitacao. */
 export default function MinhasLocacoes({
   navigate,
 }: MinhasLocacoesProps) {

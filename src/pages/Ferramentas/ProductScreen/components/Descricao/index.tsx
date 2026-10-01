@@ -1,9 +1,13 @@
+/**
+ * Detalhe da ferramenta: apresenta dados do produto e inicia fluxos de carrinho ou locacao.
+ */
 import React from 'react';
 import { View, Text } from 'react-native';
 
 import { DescricaoProps } from './types';
 import { styles } from './styles';
 
+/** Secao que apresenta a descricao textual da ferramenta. */
 export function Descricao({ texto }: DescricaoProps) {
   return (
     <View style={styles.descricaoWrapper}>

@@ -1,3 +1,6 @@
+/**
+ * Fluxo de pagamento: conduz escolha de metodo, dados do pagamento, processamento simulado e confirmacao.
+ */
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -14,6 +17,7 @@ interface AdicionarCartaoDebitoProps {
   navigate: (route: string) => void;
 }
 
+/** Formulario para cadastrar um cartao de debito e seguir no fluxo de pagamento. */
 export default function AdicionarCartaoDebito({ navigate }: AdicionarCartaoDebitoProps) {
   const {
     valor,

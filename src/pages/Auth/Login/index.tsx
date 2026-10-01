@@ -1,7 +1,11 @@
+/**
+ * Fluxo de autenticacao: concentra telas, formularios e navegacao de login, cadastro e recuperacao de senha.
+ */
 import { useEffect } from "react";
 import React from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ScrollView, Text, View, TouchableOpacity } from "react-native";
-import { Controller } from "react-hook-form"; 
+import { Controller } from "react-hook-form";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -11,9 +15,9 @@ import Animated, {
 import { AlertCircle, X, CheckCircle } from "lucide-react-native";
 
 // Importação dos elementos de navegação
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../../routes/AppRoutes';
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../../routes/AppRoutes";
 
 // Componentes
 import Input from "../../../components/Shared/Inputs/Input";
@@ -23,13 +27,21 @@ import { AuthRedirect } from "../../../components/Auth/AuthRedirect";
 
 // Estilos
 import { styles } from "./styles";
-
+import colors from '../../../theme/colors';
 // Importando (Custom Hook)
 import { useLogin } from "./useLogin";
 
+// ============================================================================
+// LoginScreen
+// ----------------------------------------------------------------------------
+// Tela de autenticação. Toda a lógica (validação, chamada de login, navegação,
+// mensagens de erro/sucesso) fica no hook useLogin(); este componente cuida
+// apenas da parte visual: inputs controlados via Controller do React Hook
+// Form, animações de "shake" no erro e "fade/pop" no sucesso (Reanimated).
+// ============================================================================
 export default function LoginScreen() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  
+
   // Extraímos tudo o que precisamos do nosso hook
   const {
     control,
@@ -56,7 +68,7 @@ export default function LoginScreen() {
         withTiming(-8, { duration: 50 }),
         withTiming(8, { duration: 50 }),
         withTiming(-4, { duration: 50 }),
-        withTiming(0, { duration: 50 })
+        withTiming(0, { duration: 50 }),
       );
     }
   }, [loginErrorMessage]);
@@ -85,12 +97,24 @@ export default function LoginScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.cabecalho}>
+        <TouchableOpacity
+          style={styles.botaoVoltar}
+          onPress={() => navigation.canGoBack() && navigation.goBack()}
+          accessibilityLabel="Voltar"
+        >
+          <MaterialCommunityIcons
+            name="arrow-left"
+            size={22}
+            color={colors.textDark}
+          />
+        </TouchableOpacity>
+      </View>
       <View style={styles.containerTitulo}>
         <Text style={styles.titulo}>Entrar</Text>
       </View>
 
       <View style={styles.formContainer}>
-
         {/* INPUT DE E-MAIL CONTROLADO */}
         <Controller
           control={control}
@@ -106,7 +130,7 @@ export default function LoginScreen() {
             />
           )}
         />
-        
+
         <View style={{ marginTop: 16 }}>
           {/* INPUT DE SENHA CONTROLADO */}
           <Controller
@@ -124,7 +148,9 @@ export default function LoginScreen() {
                 />
                 {/* Exibição do erro de Senha abaixo do input */}
                 {errors.password && (
-                  <Text style={styles.erroTexto}>{errors.password.message}</Text>
+                  <Text style={styles.erroTexto}>
+                    {errors.password.message}
+                  </Text>
                 )}
               </>
             )}
@@ -133,11 +159,17 @@ export default function LoginScreen() {
           {/* CARD "DADOS INVÁLIDOS" — aparece embaixo do campo de senha */}
           {loginErrorMessage && (
             <Animated.View style={[styles.errorCard, shakeStyle]}>
-              <AlertCircle size={18} color="#dc2626" style={styles.errorCardIcone} />
+              <AlertCircle
+                size={18}
+                color="#dc2626"
+                style={styles.errorCardIcone}
+              />
 
               <View style={styles.errorCardTextos}>
                 <Text style={styles.errorCardTitulo}>Dados inválidos</Text>
-                <Text style={styles.errorCardMensagem}>{loginErrorMessage}</Text>
+                <Text style={styles.errorCardMensagem}>
+                  {loginErrorMessage}
+                </Text>
               </View>
 
               <TouchableOpacity
@@ -149,15 +181,15 @@ export default function LoginScreen() {
             </Animated.View>
           )}
 
-          <TouchableOpacity 
-            style={styles.esqueceuSenha} 
-            onPress={() => navigation.navigate('RecoveryRequisitionScreen')}  
+          <TouchableOpacity
+            style={styles.esqueceuSenha}
+            onPress={() => navigation.navigate("RecoveryRequisitionScreen")}
           >
             <Text>Esqueceu sua senha?</Text>
           </TouchableOpacity>
         </View>
 
-       <BtnPrincipal
+        <BtnPrincipal
           title={isLoading ? "Carregando..." : "Entrar"}
           onPress={handleSignIn}
           disabled={isLoading}
@@ -166,13 +198,14 @@ export default function LoginScreen() {
         {/* CARD "LOGADO COM SUCESSO!!" — aparece antes de ir pra Home */}
         {loginSuccessMessage && (
           <Animated.View style={[styles.successCard, successStyle]}>
-            <CheckCircle size={18} color="#16a34a" style={styles.successCardIcone} />
+            <CheckCircle
+              size={18}
+              color="#16a34a"
+              style={styles.successCardIcone}
+            />
             <Text style={styles.successCardTexto}>{loginSuccessMessage}</Text>
           </Animated.View>
         )}
-        
-         
-        
       </View>
 
       <AuthRedirect

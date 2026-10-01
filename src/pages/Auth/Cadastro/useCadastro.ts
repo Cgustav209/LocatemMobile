@@ -1,3 +1,6 @@
+/**
+ * Fluxo de autenticacao: concentra telas, formularios e navegacao de login, cadastro e recuperacao de senha.
+ */
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -122,6 +125,8 @@ export function useCadastro() {
   // se o botão de "Locatário" ou "Locador" fica destacado e qual máscara usar.
   const currentUserType = watch("userType");
 
+// 10.0.2.2 é o endereço que o emulador Android usa para acessar o
+// "localhost" da máquina host (onde a API .NET/backend está rodando).
 const API_URL = "http://10.0.2.2:5033";
 
   // ============================================================================
@@ -134,6 +139,10 @@ const API_URL = "http://10.0.2.2:5033";
     setIsLoading(true);
 
     try {
+  // Diferente do login (que usa mocks via AuthContext), o cadastro já chama
+  // a API real do backend. tipoUsuario é convertido para o enum numérico
+  // esperado pelo back-end (1 = locatário, 2 = locador) e o documento é
+  // enviado sem máscara (replace remove tudo que não é dígito).
   const response = await fetch(`${API_URL}/api/Cadastro/CriarUsuario`, {
     method: "POST",
     headers: {
